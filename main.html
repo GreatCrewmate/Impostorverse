@@ -1,3 +1,66 @@
 <html>
-    
+    <head>
+        <style>
+            #main {
+                --alignment: center;
+                --flex-alignment: center;
+                --indent-left: 1;
+                --indent-right: 1;
+                --border-radius-tl: 0;
+                --border-radius-tr: 0;
+                --border-radius-br: 0;
+                --border-radius-bl: 0;
+                align-items: center;
+                display: flex;
+                flex-grow: 0;
+                flex-shrink: 0;
+                justify-content: center;
+                max-width: 100%;
+                max-height: 100%;
+                position: relative;
+                text-align: var(--alignment);
+                z-index: 1;
+            }
+            #main > .inner {
+                --padding-horizontal: 3rem;
+                --padding-vertical: 5.5rem;
+                --spacing: 2.5rem;
+                --width: 68rem;
+                border-radius: var(--border-radius-tl) var(--border-radius-tr) var(--border-radius-br) var(--border-radius-bl);
+                max-width: 100%;
+                max-height: 100%;
+                position: relative;
+                width: var(--width);
+                z-index: 1;
+                padding: var(--padding-vertical) var(--padding-horizontal);
+            }
+            .grid {
+                display: flex;
+                width: 100%;
+                border-radius: 2rem;
+                border: 2px solid #2e043d;
+                align-content: center;
+            }
+            .image {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div class="inner">
+                <div id="grid1" class="grid">
+                    <div class="onehalf">
+                        <div id="image01" class="image">
+                            <img src="stit/image01.png" style="background-image: none; size: 100% 100%; background-position: left top; background-repeat: no-repeat;">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image02.png" style="background-image: none; size: 100% 100%; background-position: left top; background-repeat: no-repeat;">
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
