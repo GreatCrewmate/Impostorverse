@@ -1,11 +1,32 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
         <link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Kdam+Thmor+Pro:ital,wght@0,400;1,400" rel="stylesheet" type="text/css">
         <style>
             :root {
-                background-color: #1e1330;
+                background: url('stit/background.png') fixed center no-repeat;
+                margin: 0 auto;
+                height: auto;
             }
+            
+            @media (max-width: 1680px) {
+                html {
+                    font-size: 11pt;
+                }
+            }
+
+            @media (max-width: 1280px) {
+                html {
+                    font-size: 11pt;
+                }
+            }
+
+            @media (max-width: 980px) {
+                html {
+                    font-size: 9pt;
+                }
+            }
+
             #main {
                 --alignment: center;
                 --flex-alignment: center;
@@ -40,27 +61,89 @@
             .container {
                 position: relative;
             }
-            .container.style1 {
+            .container.style1, .container.style2 {
+                --border-radius: 2rem;
                 display: flex;
-                border-radius: 2rem;
-                border: 2px solid #0caeff;
+                border-radius: var(--border-radius);
+                border: 2px solid #00c2ff;
                 width: 100%;
                 justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .container.style2 {
+                flex-wrap: wrap-reverse;
             }
             .container.style1 > div:nth-child(1) {
                 width: calc(35% + (4rem / 2));
+                display: grid;
+                flex-direction: column;
+                align-content: space-between;
+            }
+            .container.style2 > div:nth-child(1) {
+                width: calc(40% + (4rem / 2));
+                text-align: center;
+                margin: 0 4rem 0 4rem;
+                margin-left: 4rem;
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
+            .container.style2 > div:nth-child(2) {
+                width: calc(35% + (4rem / 2));
+                display: grid;
+                flex-direction: column;
+                align-content: space-between;
             }
             .container.style1 > div:nth-child(2) {
-                width: calc(65% + (4rem / 2));
+                width: calc(40% + (4rem / 2));
                 text-align: center;
-                padding: 0 0 0 4rem;
+                margin: 0 0 0 4rem;
+                margin-right: 4rem;
+                margin-top: 4rem;
+                margin-bottom: 4rem;
+            }
+            .container:not(:last-child) {
+                margin-bottom: 9rem !important;
+            }
+            .container:not(:first-child) {
+                margin-top: 9rem !important;
+            }
+            @media (max-width: 736px) {
+                html {
+                    font-size: 8pt;
+                }
+                .container.style1 > div:nth-child(1) {
+                    width: 100%;
+                }
+                .container.style1 > div:nth-child(2) {
+                    width: 100%;
+                }
+                .container.style2 > div:nth-child(1) {
+                    width: 100%;
+                }
+                .container.style2 > div:nth-child(2) {
+                    width: 100%;
+                }
             }
             h2.style1 {
                 width: 100%;
                 color: #fff;
                 font-family: 'Kdam Thmor Pro', sans-serif;
-                background-image: linear-gradient(360deg,  #0caeff 0%, #fff 67%);
-                font-size: 2em;
+                background-image: linear-gradient(360deg, #00c2ff 0%, #fff 67%);
+                letter-spacing: -0.2rem;
+                line-height: 1.125;
+                font-size: 2.625em;
+                font-weight: 400;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            h2.style2 {
+                width: 100%;
+                color: #fff;
+                font-family: 'Kdam Thmor Pro', sans-serif;
+                background-image: linear-gradient(360deg, #00c2ff 0%, #fff 67%);
+                letter-spacing: -0.2rem;
+                line-height: 1.125;
+                font-size: 4.25em;
                 font-weight: 400;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -69,49 +152,230 @@
                 width: 100%;
                 color: #fff;
                 font-family: 'Kdam Thmor Pro', sans-serif;
-                background-image: linear-gradient(360deg, #0caeff 0%, #fff 100%);
+                line-height: 1.875;
+                background-image: linear-gradient(360deg, #00c2ff 0%, #fff 100%);
                 font-size: 1em;
                 font-weight: 400;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-            .container.style1 > div > .image > img {
+            p.style2 {
+                color: #005773;
+                font-family: 'Kdam Thmor Pro', sans-serif;
+                font-size: 1em;
+                line-height: 1.875;
+                font-weight: 400;
+            }
+            p.style1 a {
+                text-decoration: underline;
+            }
+            p a {
+                -webkit-text-fill-color: #fff;
+            }
+            .image > img {
                 width: 100%;
                 height: auto;
                 object-fit: contain;
             }
+            .container.style1 > div:nth-child(1) > .image:first-child > img {
+                border-radius: var(--border-radius) 0 0 0;
+            }
+            .container.style1 > div:nth-child(1) > .image:last-child > img {
+                border-radius: 0 0 0 var(--border-radius);
+            }
+            .btn-group {
+                cursor: default;
+                display: flex;
+                justify-content: var(--flex-alignment);
+                letter-spacing: 0;
+                padding: 2rem 0;
+            }
+            .btn-group li {
+                max-width: 100%;
+            }
+            .btn-group.style1 {
+                gap: 0.5rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            ul {
+                list-style-type: none;
+            }
             .button {
+                display: inline-flex;
                 background: transparent;
                 border-radius: 4rem;
-                border: 1px solid #0caeff;
-                padding: 12px 16px;
+                border: 1px solid #00c2ff;
+                width: 13rem;
+                height: 3.75rem;
+                padding: 0 0.5rem;
+                align-items: center;
+                justify-content: space-evenly;
                 font-size: 1em;
                 cursor: pointer;
-                color: #0caeff;
+                color: #00c2ff;
                 font-family: 'Kdam Thmor Pro', sans-serif;
+                text-decoration: none;
             }
             .button:hover {
                 color: #fff;
                 background-color: #4931ff4b;
+            }
+            @media (max-width: 480px) {
+                #main > .inner {
+                    --spacing: 2.1875rem;
+                }
+
+                .btn-group.style1 li a {
+                    max-width: 32rem;
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 360px) {
+                #main > .inner {
+                    --padding-horizontal: 1.5rem;
+                    --padding-vertical: 3rem;
+                    --spacing: 1.875rem;
+                }
             }
         </style>
     </head>
     <body>
         <div id="main">
             <div class="inner">
+                <div id="image_logo" class="image">
+                    <img src="stit/logo.png" style="width: 65%;">
+                </div>
+                <h2 id="site-type" class="style2">Originals</h1>
+                <p id="site-text" class="style1">Mods with original ideas that embark in a new story with new characters, new songs and so much more for you to explore.</h2>
+                <li class="style1 btn-group">
+                    <a href="https://impostorverse.carrd.co" class="button"><i class="fa fa-home"></i> Home Page</a>
+                    <a href="https://impostorverse-remixes.carrd.co" class="button"><i class="fas fa-music"></i> Remixes</a>
+                    <a href="https://impostorverse-remixes2.carrd.co/" class="button"><i class="fas fa-music"></i> Remixes 2</a>
+                </li>
                 <div id="container01" class="style1 container">
                     <div>
                         <div id="image01" class="image">
                             <img src="stit/image01.png">
+                        </div>
+                        <div id="image02" class="image">
                             <img src="stit/image02.png">
                         </div>
                     </div>
                     <div>
-                        <h2 class="style1">Hmmm...</h2>
-                        <p class="style1">This is a placeholder grid.</p>
-                        <button class="button"><i class="fa fa-home"></i> Home</button>
+                        <h2 class="style1">Vs Impostor Final Kill</h2>
+                        <p class="style1">The mod that started the Impostorverse Project, directed by <a href="https://linktr.ee/gamez_plays">Gamez Plays</a> on January 28th 2023 and later continuing with the help of his team the <a href="https://gamebanana.com/studios/37012">Final Kill Team</a> on April 15th 2023, Vs Impostor Final Kill is basically Vs Impostor V5/Hotfix Update if it was finished, but at the same time an overhaul of it, adding new mid song events maybe new songs, remaking stages and sprites, and adding a lot of new content, basically bring Vs Impostor to the actual end where there isn't really much more that can be done, the ultimate mod.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamebanana.com/wips/75298" class="button"><i class="fa fa-download"></i> GameBanana</a>
+                            <a href="https://twitter.com/FinalKillTeam" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                            <a href="https://discord.gg/u9YK2SGJdU" class="button"><i class="fab fa-discord"></i> Discord Server</a>
+                            <a href="https://www.youtube.com/@VsImpostorFinalKill" class="button"><i class="fab fa-youtube"></i> Youtube</a>
+                        </li>
                     </div>
                 </div>
+                <div id="container02" class="style2 container">
+                    <div>
+                        <h2 class="style1">Logic Funkin'</h2>
+                        <p class="style1">Directed by <a href="https://twitter.com/Playerfoe">Playerfoe</a> and the team on February 15th 2022, Logic Funkin', a mod that's based on Player from <a href="https://www.youtube.com/playlist?list=PLsls0vbLG54I1DqISxExUDlaPdc0gb-7G">Among Us Logic</a> by <a href="https://www.youtube.com/@GameToonsOfficial">Game Toons</a> along with other new foes you will meet along the way.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamebanana.com/wips/74236" class="button"><i class="fa fa-download"></i> GameBanana (TBA)</a>
+                            <a href="https://twitter.com/playerfromfnf" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                            <a href="https://discord.com/invite/82RCS36CSB" class="button"><i class="fab fa-discord"></i> Discord Server</a>
+                            <a href="https://logicfunkin.carrd.co" class="button"><i class="fas fa-globe"></i> Website</a>
+                        </li>
+                    </div>
+                    <div>
+                        <div id="image01" class="image">
+                            <img src="stit/image03.png">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image04.png">
+                        </div>
+                    </div>
+                </div>
+                <div id="container03" class="style1 container">
+                    <div>
+                        <div id="image01" class="image">
+                            <img src="stit/image05.png">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image06.png">
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="style1">Bonnie's Epic Among Us Mod</h2>
+                        <p class="style1">Directed by <a href="https://twitter.com/BonnieStyleYT">BonnieStyle</a> and Team Saboscrewed on February 20th 2023, is Bonnie's Epic Among Us Mod, it's a mod about Among Us, this mod includes some epic bangers and amazing sprites with a goofy story.<br> The mod brings some stuff from all the Among Us community like OCs, Creepypastas, Animations, YouTubers, etc.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamebanana.com/wips/76343" class="button"><i class="fa fa-download"></i> GameBanana (Demo)</a>
+                            <a href="https://gamejolt.com/games/BonnieSusMod/810118" class="button"><i class="fa fa-download"></i> GameJolt (Demo)</a>
+                            <a href="https://twitter.com/BonniesSusMod" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                        </li>
+                    </div>
+                </div>
+                <div id="container04" class="style2 container">
+                    <div>
+                        <h2 class="style1">Crewmember Chaos</h2>
+                        <p class="style1">Directed by <a href="https://twitter.com/Tailonadventur1">TailonGaming</a> and The Crewmembers Team on Junuary 29th 2022, after 1 year, this mod is updated with its V2 to contain 15 songs, a new menu, 2 weeks with impostors looking for a fight and many more things that you will discover over time.<br> The Horrible v1 is now available on GameJolt.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamejolt.com/games/crewmemberchaos/" class="button"><i class="fa fa-download"></i> GameJolt (V1)</a>
+                            <a href="https://twitter.com/crewmemberchaos" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                            <a href="https://discord.com/invite/82RCS36CSB" class="button"><i class="fab fa-discord"></i> Discord Server</a>
+                            <a href="https://www.youtube.com/playlist?list=PL2Ffs1nhoVvJF6s9SEbB4QIg3wt-OEYMR" class="button"><i class="fab fa-youtube"></i> OST + Teasers</a>
+                        </li>
+                    </div>
+                    <div>
+                        <div id="image01" class="image">
+                            <img src="stit/image07.png">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image08.png">
+                        </div>
+                    </div>
+                </div>
+                <div id="container05" class="style1 container">
+                    <div>
+                        <div id="image01" class="image">
+                            <img src="stit/image09.png">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image10.png">
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="style1">Suspicious Night Funkin</h2>
+                        <p class="style1">Made by <a href="https://youtube.com/@fivenightsatshays684">Shay</a> and their team on April 2023, Suspicious Night Funkin', a Red hacker who was taken from his dad had his last gift from him hacker powers, he terrorised the crewmates for years util a blue haired kid showed up and ruined his plans, so he needed backup and called his adopted son Dark Red.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamebanana.com/wips/76506" class="button"><i class="fa fa-download"></i> GameBanana</a>
+                            <a href="https://twitter.com/tent18363882?s=21&t=O8IEiNXnKulHeyB-Kg-IaQ" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                            <a href="https://discord.gg/hPY2KKnq" class="button"><i class="fab fa-discord"></i> Discord Server</a>
+                        </li>
+                    </div>
+                </div>
+                <div id="container06" class="style2 container">
+                    <div>
+                        <h2 class="style1">Vs Jake Impostor</h2>
+                        <p class="style1">Directed by <a href="https://twitter.com/francis5889/">Francis</a> and his team on March 3rd 2023, is Vs Jake Impostor, Jake is just a crewmate, a crewmate that walks around with a gun, wait a second are they really a crewmate? Why would they walk around with a gun? Well BF and GF found him and decided to have a rap battle with him, nothing can go wrong.</p>
+                        <li class="style1 btn-group">
+                            <a href="https://gamebanana.com/wips/76852" class="button"><i class="fa fa-download"></i> GameBanana</a>
+                            <a href="https://twitter.com/Vsjakeimposter" class="button"><i class="fab fa-twitter"></i> Twitter</a>
+                        </li>
+                    </div>
+                    <div>
+                        <div id="image01" class="image">
+                            <img src="stit/image11.png">
+                        </div>
+                        <div id="image02" class="image">
+                            <img src="stit/image12.png">
+                        </div>
+                    </div>
+                </div>
+                <li class="style1 btn-group" style="margin-bottom: 9rem !important;">
+                    <a href="https://impostorverse.carrd.co" class="button"><i class="fa fa-home"></i> Home Page</a>
+                    <a href="https://impostorverse-remixes.carrd.co" class="button"><i class="fas fa-music"></i> Remixes</a>
+                    <a href="https://impostorverse-remixes2.carrd.co/" class="button"><i class="fas fa-music"></i> Remixes 2</a>
+                </li>
+                <p id="text01" class="style2">© Impostorverse. All rights reserved.</p>
             </div>
         </div>
     </body>
