@@ -1,3 +1,4 @@
 #ignore some files
 *.html
 finished/*
+old/*
